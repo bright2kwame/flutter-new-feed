@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'api/api_service.dart';
 import 'api/api_url.dart';
 import 'api/parse_data.dart';
-import 'api/view_helper.dart';
+import 'view_helper.dart';
 import 'color.dart';
 import 'new_feed.dart';
 

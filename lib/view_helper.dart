@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../color.dart';
+import 'color.dart';
 
 class ViewHelper {
   AppBar appBar(String title) {
@@ -11,7 +11,7 @@ class ViewHelper {
       ),
       title: Text(
         title,
-        style: TextStyle(color: Colors.black),
+        style: TextStyle(color: Colors.black, fontSize: 14),
       ),
       centerTitle: true,
       backgroundColor: HexColor.fromHex('#F8F8FD'),
