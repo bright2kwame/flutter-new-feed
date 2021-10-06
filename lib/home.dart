@@ -58,6 +58,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+//MARK: the base list builder
   Widget _buildMainContentView(BuildContext buildContext) {
     this._buildContext = buildContext;
     return ListView.builder(
@@ -72,6 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
+//MARK: view for each item
   Widget rowItemView(NewFeed feed) {
     return Container(
       padding: EdgeInsets.all(8),
@@ -87,7 +89,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 Padding(
                   padding: EdgeInsets.only(
-                    top: 8,
+                    top: 32,
                   ),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
@@ -122,7 +124,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     feed.title,
                     style: TextStyle(
                         color: Colors.black, fontWeight: FontWeight.bold),
-                    maxLines: 3,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
                 ),
@@ -162,11 +164,15 @@ class _MyHomePageState extends State<MyHomePage> {
                           width: 100,
                           color: Colors.grey.withAlpha(100),
                         )
-                      : new Image(
-                          image: CachedNetworkImageProvider(feed.urlToImage),
-                          fit: BoxFit.cover,
-                          width: 100,
+                      : CachedNetworkImage(
                           height: 110,
+                          width: 100,
+                          fit: BoxFit.cover,
+                          imageUrl: feed.urlToImage,
+                          placeholder: (context, url) =>
+                              ViewHelper().placeholderImage(height: 110),
+                          errorWidget: (context, url, error) =>
+                              ViewHelper().placeholderImage(height: 110),
                         ),
                 )
               ],
@@ -182,6 +188,7 @@ class _MyHomePageState extends State<MyHomePage> {
         MaterialPageRoute(builder: (context) => FeedDatailPage(newFeed: feed)));
   }
 
+//MARK: the header view in the list
   Widget headerView(NewFeed feed) {
     return Container(
         padding: EdgeInsets.all(8),
@@ -190,11 +197,17 @@ class _MyHomePageState extends State<MyHomePage> {
           borderRadius: BorderRadius.circular(8.0),
           child: Stack(
             children: [
-              new Image(
-                image: CachedNetworkImageProvider(feed.urlToImage),
-                fit: BoxFit.cover,
-                width: MediaQuery.of(context).size.width,
+              CachedNetworkImage(
                 height: 200,
+                width: MediaQuery.of(context).size.width,
+                fit: BoxFit.cover,
+                imageUrl: feed.urlToImage,
+                placeholder: (context, url) => Center(
+                  child: ViewHelper().placeholderImage(height: 200),
+                ),
+                errorWidget: (context, url, error) => Center(
+                  child: ViewHelper().placeholderImage(height: 200),
+                ),
               ),
               new Container(
                 padding: EdgeInsets.all(16),
