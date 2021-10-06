@@ -100,16 +100,17 @@ class _MyHomePageState extends State<MyHomePage> {
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,
                       ),
-                      Text(
-                        feed.publishedAt + " 🔥 ",
-                        style: TextStyle(
-                            fontSize: 10,
-                            color: Colors.grey,
-                            fontWeight: FontWeight.normal),
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                      Expanded(child: Container())
+                      Expanded(
+                        child: Text(
+                          feed.publishedAt + " 🔥 ",
+                          style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.grey,
+                              fontWeight: FontWeight.normal),
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                        ),
+                      )
                     ],
                   ),
                 ),
