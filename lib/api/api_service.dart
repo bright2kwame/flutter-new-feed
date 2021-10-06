@@ -30,7 +30,7 @@ class ApiService {
     Map<String, String> emptyHeader = new Map();
     return _netUtil.post(url, emptyHeader, data, utf8).then((dynamic data) {
       var statusCode = data["status"];
-      print("STATUS: $statusCode DATA: $data");
+      print("STATUS: $statusCode");
       if (statusCode == "ok") {
         return data;
       } else {
@@ -45,7 +45,7 @@ class ApiService {
     Map<String, String> basicHeaders = new Map();
     return _netUtil.post(url, basicHeaders, data, utf8).then((dynamic data) {
       var statusCode = data["status"];
-      print("STATUS: $statusCode DATA: $data");
+      print("STATUS: $statusCode");
       if (statusCode == "ok") {
         return data;
       } else {

@@ -66,12 +66,17 @@ class _FeedDatailPageState extends State<FeedDatailPage> {
             ClipRRect(
               borderRadius: BorderRadius.circular(8.0),
               child: widget.newFeed.urlToImage.isNotEmpty
-                  ? new Image(
-                      image:
-                          CachedNetworkImageProvider(widget.newFeed.urlToImage),
-                      fit: BoxFit.cover,
+                  ? CachedNetworkImage(
+                      height: 250,
                       width: MediaQuery.of(context).size.width,
-                      height: 200,
+                      fit: BoxFit.cover,
+                      imageUrl: widget.newFeed.urlToImage,
+                      placeholder: (context, url) => Center(
+                        child: ViewHelper().placeholderImage(height: 250),
+                      ),
+                      errorWidget: (context, url, error) => Center(
+                        child: ViewHelper().placeholderImage(height: 250),
+                      ),
                     )
                   : Container(
                       height: 200,

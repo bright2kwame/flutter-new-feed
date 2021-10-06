@@ -66,7 +66,22 @@ class _MyHomePageState extends State<MyHomePage> {
       itemBuilder: (BuildContext context, int index) {
         var row = data[index];
         if (index == 0) {
-          return headerView(row);
+          return Container(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                headerView(row),
+                Padding(
+                  padding: EdgeInsets.only(top: 8, left: 16, right: 15),
+                  child: Text(
+                    "Trending News",
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                )
+              ],
+            ),
+          );
         }
         return rowItemView(row);
       },
