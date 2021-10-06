@@ -1,6 +1,6 @@
 # news_feed
 
-![alt text](https://ibb.co/5Tz2279)
+![alt text](https://i.ibb.co/9nfGGMv/news-feed.png)
 
 A new Flutter project.
 
